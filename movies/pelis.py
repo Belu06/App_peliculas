@@ -25,3 +25,4 @@ def get_pelicula(id):
             WHERE film_id = ?,
             (id,)"""
     ).fetchone()
+    

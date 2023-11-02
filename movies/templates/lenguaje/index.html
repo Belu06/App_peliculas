@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block header %} {% endblock %} {% block content %}
+{% for pelicula in pelis %}
+<article class="peliculas">
+  <header>
+    <div>
+      <h1>{{ pelicula['Pelicula'] }}</h1>
+      <div class="about">
+        {{ pelicula['Nombre'] }},{{ pelicula['Apellido'] }}
+      </div>
+
+      <div class="about">{{ pelicula['categoria'] }}</div>
+    </div>
+    {% endfor %} {% endblock %}
+  </header>
+</article>
