@@ -12,16 +12,8 @@ bp = Blueprint('actores', __name__,url_prefix="/actor/")
 def index():
     db = get_db()
     actores = db.execute(
-        """SELECT *
+        """SELECT first_name AS Nombre, last_name AS Apellido
             FROM actor
-            ORDER BY first_name,last_name """
+            ORDER BY Nombre, Apellido ASC"""
     ).fetchall()
     return render_template('actores/index.html', actores=actores)
-
-def get_actor(id):
-    actor = get_db().execute(
-        """SELECT *
-            FROM actor
-            WHERE actor_id = ?,
-            (id,)"""
-    ).fetchone()

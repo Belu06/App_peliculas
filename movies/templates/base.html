@@ -3,6 +3,20 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 <nav>
   <h1>Películas</h1>
+  <ul>
+    <li>
+      <a href="{{url_for('lenguajes.index')}}">Lenguajes</a>
+    </li>
+    <li>
+      <a href="{{url_for('categorias.index')}}">Categorias</a>
+    </li>
+    <li>
+      <a href="{{url_for('actores.index')}}">Actores</a>
+    </li>
+    <li>
+      <a href="{{url_for('pelis.index')}}">Peliculas</a>
+    </li>
+  </ul>
 </nav>
 <section class="content">
   <header>{% block header %}{% endblock %}</header>
