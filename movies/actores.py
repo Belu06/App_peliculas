@@ -18,3 +18,15 @@ def index():
     ).fetchall()
     return render_template('actores/index.html', actores=actores)
 
+def get_actor(id):
+    actor = get_db().execute(
+        """SELECT first_name AS Nombre, last_name AS Apellido, title AS Pelicula
+            FROM film f JOIN film_actor fa
+            ON f.film_id = fa.film_id
+            JOIN actor a
+            ON fa.actor_id = a.actor_id
+            WHERE 
+            ORDER BY Nombre, Apellido ASC
+            """, (id,)
+    ).fetchone()
+    return actor
