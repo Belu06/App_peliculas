@@ -5,7 +5,8 @@
     <div>
       <h1>{{ pelicula['Pelicula'] }}</h1>
       <div class="about">
-        {{ pelicula['Nombre'] }},{{ pelicula['Apellido'] }}
+        {{ pelicula['title'] }} {{ pelicula['rating'] }} {{
+        pelicula['Lenguaje']}}
       </div>
     </div>
     {% endfor %} {% endblock %}
