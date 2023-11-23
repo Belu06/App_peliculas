@@ -17,15 +17,15 @@ def index():
     ).fetchall()
     return render_template('categoria/index.html', categorias=categorias)
 
-def get_categoria(id):
-    categoria = get_db().execute(
+@bp.route('/<int:id>/')
+def detalle(id):
+   categoria = get_db().execute(
         """SELECT title AS Pelicula, c.name AS Categoria
             FROM film f JOIN film_category fc
             ON f.film_id = fc.film_id
             JOIN category c
             ON fc.category_id = c.category_id
-            WHERE f.film_id = ?,
+            WHERE f.category_id = ?,
             """, (id,)
     ).fetchone()
-    return categoria
-    
+   return render_template('categoria/detalle.html', categoria=categoria)   

@@ -16,12 +16,13 @@ def index():
     ).fetchall()
     return render_template('lenguaje/index.html', lenguajes=lenguajes)
 
-def get_lenguaje(id):
-    lenguaje = get_db().execute(
+@bp.route('/<int:id>/')
+def detalle(id):
+   lenguaje = get_db().execute(
         """SELECT title AS Pelicula, l.name AS Lenguaje,
             FROM film f JOIN language l
             ON f.language_id = l.language_id
-            WHERE f.film_id = ?,
+            WHERE f.langauje_id = ?,
             """, (id,)
     ).fetchone()
-    return lenguaje
+   return render_template('categoria/detalle.html', lenguaje=lenguaje)
